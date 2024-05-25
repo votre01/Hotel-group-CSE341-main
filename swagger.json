@@ -5,7 +5,7 @@
     "description": "Hotelierpro API",
     "version": "1.0.0"
   },
-  "host": "cse341-hotelierpro.onrender.com/",
+  "host": "cse341-hotelierpro.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
