@@ -8,7 +8,7 @@ const suite = (req, res, next) => {
     bathrooms: 'required|integer',
     floor: 'required|string',
     suiteType: 'required|string',
-    descritption: 'required|string'
+    description: 'required|string'
   };
  
 
@@ -49,21 +49,21 @@ const staff = (req, res, next) => {
 };
 
 const client = (req, res, next) => {
-  let passValidation = true;
+  // let passValidation = true;
   const validationRule = {
     firstName: 'required|string',
     lastName: 'required|string',
-    birthdate: 'required|datetime', 
+    birthdate: 'required|string', 
     email: 'required|string',
     address: 'string',       
     phone: 'string',
     gender: 'string',
   }
 
-  req.body.hotelsIds.map(id => {
-    passValidation = (typeof id === 'string' || myVar instanceof String) ?
-      true : false;
-  });
+  // req.body.suiteId.map(id => {
+  //   passValidation = (typeof id === 'string' || myVar instanceof String) ?
+  //     true : false;
+  // });
  
 
 

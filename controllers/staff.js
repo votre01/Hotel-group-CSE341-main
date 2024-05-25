@@ -5,7 +5,7 @@ const DATABASE = "hotelierpro";
 const COLLECTION_NAME = "staff";
 
 const getAllStaff = async (req, res) => {
-
+//#swagger.tags=['Staff']
   const result = await mongodb
     .getDatabase()
     .db(DATABASE)
@@ -31,6 +31,7 @@ const getAllStaff = async (req, res) => {
 };
 
 const getSingleStaff = async (req, res) => {
+//#swagger.tags=['Staff']
   const staffId = new ObjectId(req.params.id);
   const result = await mongodb
     .getDatabase()
@@ -52,6 +53,7 @@ const getSingleStaff = async (req, res) => {
 };
 
 const createStaff = async (req, res) => {
+//#swagger.tags=['Staff']
   const staff = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -72,7 +74,9 @@ const createStaff = async (req, res) => {
     res.status(500).json(response.error || 'Failed to create staff.');
   }
 };
+
 const updateStaff = async (req, res) => {
+//#swagger.tags=['Staff']
   const staffId = new ObjectId(req.params.id);
   const staff = {
     firstName: req.body.firstName,
@@ -93,7 +97,9 @@ const updateStaff = async (req, res) => {
     res.status(500).json(response.error || 'Failed to update staff.');
   }
 };
+
 const deleteStaff = async (req, res) => {
+//#swagger.tags=['Staff']
   const staffId = new ObjectId(req.params.id);
 
   const response = await mongodb

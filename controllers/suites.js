@@ -1,3 +1,4 @@
+const { ServerDescription } = require('mongodb');
 const mongodb = require('../database/database');
 const ObjectId = require('mongodb').ObjectId;
 
@@ -5,6 +6,7 @@ const DATABASE = "hotelierpro";
 const COLLECTION_NAME = "suites";
 
 const getAllSuites = async (req, res) => {
+//#swagger.tags=['Suites']
   console.log("getAllSuites");
   const result = await mongodb
     .getDatabase()
@@ -38,6 +40,7 @@ const getAllSuites = async (req, res) => {
 };
 
 const getSingleSuite = async (req, res) => {
+//#swagger.tags=['Suites']
   const suiteId = new ObjectId(req.params.id);
   const result = await mongodb
     .getDatabase()
@@ -59,13 +62,15 @@ const getSingleSuite = async (req, res) => {
 };
 
 const createSuite = async (req, res) => {
+//#swagger.tags=['Suites']
   const suite = {
-    hotelName: req.body.hotel,
+    hotelName: req.body.hotelName,
     suiteNumber: req.body.suiteNumber,
     bedrooms: req.body.bedrooms,
     bathrooms: req.body.bathrooms,
     floor: req.body.floor,
-    suiteType: req.body.floor,
+    suiteType: req.body.suiteType,
+    description: req.body.description
   };
   const response = await mongodb
     .getDatabase()
@@ -80,15 +85,18 @@ const createSuite = async (req, res) => {
     res.status(500).json(response.error || 'Failed to create suite.');
   }
 };
+
 const updateSuite = async (req, res) => {
+//#swagger.tags=['Suites']
   const suiteId = new ObjectId(req.params.id);
   const suite = {
-    hotelName: req.body.hotel,
+    hotelName: req.body.hotelName,
     suiteNumber: req.body.suiteNumber,
     bedrooms: req.body.bedrooms,
     bathrooms: req.body.bathrooms,
     floor: req.body.floor,
-    suiteType: req.body.floor,
+    suiteType: req.body.suiteType,
+    description: req.body.description
   };
   const response = await mongodb
     .getDatabase()
@@ -102,9 +110,10 @@ const updateSuite = async (req, res) => {
     res.status(500).json(response.error || 'Failed to update suite.');
   }
 };
-const deleteSuite = async (req, res) => {
-  const suiteId = new ObjectId(req.params.id);
 
+const deleteSuite = async (req, res) => {
+//#swagger.tags=['Suites']
+  const suiteId = new ObjectId(req.params.id);
   const response = await mongodb
     .getDatabase()
     .db(DATABASE)

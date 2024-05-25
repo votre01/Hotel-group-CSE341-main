@@ -1,10 +1,10 @@
 const swaggerAutogen = require('swagger-autogen')();
 const doc = {
   info: {
-    title: 'My API',
-    description: 'Contacts API'
+    title: 'Hotelierpro API',
+    description: 'Hotelierpro API'
   },
-  host: 'cse341-project2-8vxu.onrender.com',
+  host: 'localhost:3000',
   schemes: ['https','http']
 };
 const outputFile = './swagger.json';

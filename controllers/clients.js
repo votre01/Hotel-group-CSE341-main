@@ -5,6 +5,7 @@ const DATABASE = "hotelierpro";
 const COLLECTION_NAME = "clients";
 
 const getAllClients = async (req, res) => {
+//#swagger.tags=['Clients']
   const result = await mongodb
     .getDatabase()
     .db(DATABASE)
@@ -30,6 +31,7 @@ const getAllClients = async (req, res) => {
 };
 
 const getSingleClient = async (req, res) => {
+//#swagger.tags=['Clients']
   const clientId = new ObjectId(req.params.id);
   const result = await mongodb
     .getDatabase()
@@ -51,6 +53,7 @@ const getSingleClient = async (req, res) => {
 };
 
 const createClient = async (req, res) => {
+//#swagger.tags=['Clients']
   const client = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -73,7 +76,9 @@ const createClient = async (req, res) => {
     res.status(500).json(response.error || 'Failed to create user.');
   }
 };
+
 const updateClient = async (req, res) => {
+//#swagger.tags=['Clients']
   const clientId = new ObjectId(req.params.id);
   const client = {
     firstName: req.body.firstName,
@@ -96,7 +101,9 @@ const updateClient = async (req, res) => {
     res.status(500).json(response.error || 'Failed to update client.');
   }
 };
+
 const deleteClient = async (req, res) => {
+//#swagger.tags=['Clients']
   const clientId = new ObjectId(req.params.id);
 
   const response = await mongodb
